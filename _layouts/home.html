@@ -1,0 +1,78 @@
+---
+layout: default
+---
+<style>
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+.post-thumbnail {
+  height: 256px;
+  overflow: hidden;
+}
+</style>
+
+<div class="home">
+  {%- if site.posts.size > 0 -%}
+    {% for category in site.categories %}
+    <h2 class="post-list-heading">
+      {{ category[0] | capitalize }}
+    </h2>
+  
+    <div class="row">
+      {% for post in category[1] %}
+        <div class="column">
+          <div class="post-thumbnail">
+            <a href="{{ post.url | relative_url }}"><img src="{{ post.thumbnail }}" /></a>
+          </div>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {% if post.tags.size > 0 %}<span class="post-meta">Tags: {{ post.tags | join: ", " }}</span>{% endif %}
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </div>
+      {% endfor %}
+    </div>
+{% endfor %}
+
+<!--     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%} -->
+
+</div>

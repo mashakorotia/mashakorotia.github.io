@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Паритет"
+date:   2018-10-24 10:59:41 +0300
+thumbnail: /assets/posts/paritet/paritet1.png
+categories: [sites, ]
+tags: [html, ]
+---
+![Screenshot1](/assets/posts/paritet/paritet1.png)
+
+
+![Screenshot2](/assets/posts/paritet/paritet1.png)
